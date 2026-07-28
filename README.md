@@ -148,3 +148,13 @@ HAVING COUNT(*) > 1;
 ```
 
 **Output:** No data was returned, verifying that there were no duplicate rows
+
+### Checking Distinct Values in `OperatorType`
+
+```sql
+SELECT DISTINCT OperatorType
+FROM `LAX_data.gt_traffic_combined`
+ORDER BY OperatorType;
+```
+
+**Output:** Returned all 18 operator types, confirming there are no extra or misspelled types
