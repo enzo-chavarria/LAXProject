@@ -114,3 +114,25 @@ HAVING COUNT(*) > 1;
 **Output:** No data was returned, confirming the absence of duplicate rows
 
 ## Data Cleaning (Transportation Traffic)
+
+### Checking for Null Values
+
+Verified that there were neither any completely null rows or columns with null entries
+
+```sql
+SELECT COUNT(*) AS fully_null_rows
+FROM `LAX_data.gt_traffic_combined`
+WHERE ReportPeriod IS NULL
+  AND OperatorType IS NULL
+  AND Monthly_Trips IS NULL;
+
+SELECT
+  COUNTIF(ReportPeriod IS NULL) AS null_report_period,
+  COUNTIF(OperatorType IS NULL) AS null_operator_type,
+  COUNTIF(Monthly_Trips IS NULL) AS null_monthly_trips
+FROM `LAX_data.gt_traffic_combined`;
+```
+
+**Output:** 
+
+
