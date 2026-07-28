@@ -21,3 +21,9 @@ WHERE DataExtractDate IS NULL
 SELECT DISTINCT Terminal FROM `LAX_data.passenger_combined` ORDER BY Terminal;
 SELECT DISTINCT Arrival_Departure FROM `LAX_data.passenger_combined` ORDER BY Arrival_Departure;
 SELECT DISTINCT Domestic_International FROM `LAX_data.passenger_combined` ORDER BY Domestic_International;
+
+--check for duplicate rows
+SELECT ReportPeriod, Terminal, Arrival_Departure, Domestic_International, COUNT(*) AS occurrences
+FROM `LAX_data.passenger_combined`
+GROUP BY ReportPeriod, Terminal, Arrival_Departure, Domestic_International
+HAVING COUNT(*) > 1;
