@@ -158,3 +158,16 @@ ORDER BY OperatorType;
 ```
 
 **Output:** Returned all 18 operator types, confirming there are no extra or misspelled types
+
+### Checking Distinct Months
+
+Confirmed there are exactly 49 distinct months, with no gaps or duplicates
+
+```sql
+SELECT COUNT(DISTINCT ReportPeriod) AS distinct_months,
+       MIN(ReportPeriod) AS earliest,
+       MAX(ReportPeriod) AS latest
+FROM `LAX_data.gt_traffic_combined`;
+```
+
+**Output:** 
