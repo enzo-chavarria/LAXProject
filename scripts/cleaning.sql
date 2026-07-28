@@ -49,3 +49,8 @@ SELECT ReportPeriod, OperatorType, COUNT(*) AS occurrences
 FROM `LAX_data.gt_traffic_combined`
 GROUP BY ReportPeriod, OperatorType
 HAVING COUNT(*) > 1;
+
+--check distinct values in `OperatorType`
+SELECT DISTINCT OperatorType
+FROM `LAX_data.gt_traffic_combined`
+ORDER BY OperatorType;
