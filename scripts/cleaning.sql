@@ -1,3 +1,4 @@
+---PASSENGER TRAFFIC
 --count fully null rows
 SELECT COUNT(*) AS fully_null_rows
 FROM `LAX_data.passenger_combined`
@@ -27,3 +28,18 @@ SELECT ReportPeriod, Terminal, Arrival_Departure, Domestic_International, COUNT(
 FROM `LAX_data.passenger_combined`
 GROUP BY ReportPeriod, Terminal, Arrival_Departure, Domestic_International
 HAVING COUNT(*) > 1;
+
+---GROUND TRANSPORTATION
+--check for null rows
+SELECT COUNT(*) AS fully_null_rows
+FROM `LAX_data.gt_traffic_combined`
+WHERE ReportPeriod IS NULL
+  AND OperatorType IS NULL
+  AND Monthly_Trips IS NULL;
+
+--check for null in columns
+SELECT
+  COUNTIF(ReportPeriod IS NULL) AS null_report_period,
+  COUNTIF(OperatorType IS NULL) AS null_operator_type,
+  COUNTIF(Monthly_Trips IS NULL) AS null_monthly_trips
+FROM `LAX_data.gt_traffic_combined`;
