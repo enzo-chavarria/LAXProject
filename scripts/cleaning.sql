@@ -54,3 +54,10 @@ HAVING COUNT(*) > 1;
 SELECT DISTINCT OperatorType
 FROM `LAX_data.gt_traffic_combined`
 ORDER BY OperatorType;
+
+-- check distinct months
+SELECT COUNT(DISTINCT ReportPeriod) AS distinct_months,
+       MIN(ReportPeriod) AS earliest,
+       MAX(ReportPeriod) AS latest
+FROM `LAX_data.gt_traffic_combined`;
+
