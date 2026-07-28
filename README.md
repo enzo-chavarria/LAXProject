@@ -33,17 +33,24 @@ Key components of the ATMP relevant to this analysis:
 
 ## Data Collection
 
+### Passenger Traffic by Terminal Data
 1. Exported Passenger Traffic by Terminal as a csv from [data.lacity.org](https://data.lacity.org/Transportation/Los-Angeles-International-Airport-Passenger-Traffi/g3qu-7q2u/about_data).
 2. Removed rows 671 and below to narrow the scope to June 2022 - June 2026.
 3. Exported individual pdf files for LAX Passenger Traffic Comparison by Terminal from [lawa.org](https://www.lawa.org/lawa-investor-relations/statistics-for-lax/volume-of-air-traffic) (December 2023 - June 2026). It is worth noting that the data for March 2026 was not publicly available, and therefore was not included in this analysis.
 4. Used this [script](./scripts/extract_lax_passenger_pdf.py) to convert the pdfs into csv files with the same format as the one retrieved in step 1.
-5. Uploaded all the csv files as tables in BigQuery and combined them with a [wildcard query](./scripts/combinetables.sql)
+5. Uploaded all the csv files as tables in BigQuery and combined them with a [wildcard query](./scripts/combinetables.sql).
  ```sql
    CREATE TABLE `LAX_data.passenger_combined` AS
   SELECT * FROM `LAX_data.pt*`;
   ```
 
-## Data Cleaning
+### Ground Transportation Traffic Data
+
+1. Exported individual monthly pdf files (June 2022 - June 2026) for ground transportation traffic data from [lawa.org](https://www.lawa.org/lawa-investor-relations/statistics-for-lax/ground-transportation-traffic-statistics).
+2. Used this [script](.scripts/extract_gt_pdf.py) to convert pdfs into a csv and combine them.
+3. Uploaded the csv file as a table in BigQuery.
+
+## Data Cleaning (Passenger Traffic Data)
 
 ### Checking for Null Values
 
@@ -105,3 +112,5 @@ HAVING COUNT(*) > 1;
 ```
 
 **Output:** No data was returned, confirming the absence of duplicate rows
+
+## Data Cleaning (Transportation Traffic)
