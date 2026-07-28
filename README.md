@@ -135,4 +135,4 @@ FROM `LAX_data.gt_traffic_combined`;
 
 **Output:** 
 
-
+![no null rows](images/gt_null_rows.png) ![no null columns](images/gt_null_col.png)
