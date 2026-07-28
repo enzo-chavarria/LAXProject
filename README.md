@@ -42,3 +42,23 @@ Key components of the ATMP relevant to this analysis:
    CREATE TABLE `LAX_data.passenger_combined` AS
   SELECT * FROM `LAX_data.pt*`;
   ```
+
+## Data Cleaning
+
+### Checking for Null Values
+
+When Inspecting the combined table, large chunks of fully null rows were found. Likely due to tailing whitespace in the individual tables before combining. The exact number of fully null rows was queried.
+
+```sql
+SELECT COUNT(*) AS fully_null_rows
+FROM `LAX_data.passenger_combined`
+WHERE DataExtractDate IS NULL
+  AND ReportPeriod IS NULL
+  AND Terminal IS NULL
+  AND Arrival_Departure IS NULL
+  AND Domestic_International IS NULL
+  AND Passenger_Count IS NULL;
+```
+
+**Output:**
+
