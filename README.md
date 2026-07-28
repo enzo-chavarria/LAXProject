@@ -26,4 +26,14 @@ Key components of the ATMP relevant to this analysis:
 ## Tools Used
 - **Google BigQuery (SQL)** 
 - **Python** 
-- **Tableau Public** 
+- **Tableau Public**
+
+
+# Process
+
+## Data Collection
+
+1. Exported Passenger Traffic by Terminal as a csv from [data.lacity.org](https://data.lacity.org/Transportation/Los-Angeles-International-Airport-Passenger-Traffi/g3qu-7q2u/about_data).
+2. Removed rows 671 and below to narrow the scope to June 2022 - June 2026.
+3. Exported individual pdf files for LAX Passenger Traffic Comparison by Terminal from [lawa.org](https://www.lawa.org/lawa-investor-relations/statistics-for-lax/volume-of-air-traffic) (December 2023 - June 2026). It is worth noting that the data for March 2026 was not publicly available, and therefore was not included in this analysis.
+4.
