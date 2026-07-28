@@ -93,3 +93,15 @@ SELECT DISTINCT Domestic_International FROM `LAX_data.passenger_combined` ORDER 
 ![distinct terminals](images/terminals.png) ![distinct arr and dep](images/arr_dep.png) ![distinct dom and int](images/dom_int.png)
 
 Verified that all categorical columns have correctly labeled distinct entries.
+
+
+### Checking for Duplicate Rows
+
+```sql
+SELECT ReportPeriod, Terminal, Arrival_Departure, Domestic_International, COUNT(*) AS occurrences
+FROM `LAX_data.passenger_combined`
+GROUP BY ReportPeriod, Terminal, Arrival_Departure, Domestic_International
+HAVING COUNT(*) > 1;
+```
+
+**Output:** No data was returned, confirming the absence of duplicate rows
