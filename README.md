@@ -37,3 +37,4 @@ Key components of the ATMP relevant to this analysis:
 2. Removed rows 671 and below to narrow the scope to June 2022 - June 2026.
 3. Exported individual pdf files for LAX Passenger Traffic Comparison by Terminal from [lawa.org](https://www.lawa.org/lawa-investor-relations/statistics-for-lax/volume-of-air-traffic) (December 2023 - June 2026). It is worth noting that the data for March 2026 was not publicly available, and therefore was not included in this analysis.
 4. Used this [script](./scripts/extract_lax_passenger_pdf.py) to convert the pdfs into csv files with the same format as the one retrieved in step 1.
+5. Uploaded all the csv files as tables in BigQuery and combined them with a 
