@@ -62,3 +62,4 @@ WHERE DataExtractDate IS NULL
 
 **Output:**
 
+![7214 fully null rows](images/nullrows.png)
