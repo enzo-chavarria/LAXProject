@@ -63,3 +63,19 @@ WHERE DataExtractDate IS NULL
 **Output:**
 
 ![7214 fully null rows](images/nullrows.png)
+
+Inspecting the table that was sourced directly as a csv in step 1 of the data collection phase revealed that it had 7883 rows. In fact, looking at the tail end revealed pages of fully null rows. Subtracting 7214 from 7883 gives 669, the correct number of data filled rows that should be in that file.
+
+### Removing Fully Null Rows
+
+With the justification above, removed all 7214 fully null rows.
+
+```sql
+DELETE FROM `LAX_data.passenger_combined`
+WHERE DataExtractDate IS NULL
+  AND ReportPeriod IS NULL
+  AND Terminal IS NULL
+  AND Arrival_Departure IS NULL
+  AND Domestic_International IS NULL
+  AND Passenger_Count IS NULL;
+```
