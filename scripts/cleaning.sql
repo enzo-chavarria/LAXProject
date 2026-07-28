@@ -43,3 +43,9 @@ SELECT
   COUNTIF(OperatorType IS NULL) AS null_operator_type,
   COUNTIF(Monthly_Trips IS NULL) AS null_monthly_trips
 FROM `LAX_data.gt_traffic_combined`;
+
+--check for duplicate rows
+SELECT ReportPeriod, OperatorType, COUNT(*) AS occurrences
+FROM `LAX_data.gt_traffic_combined`
+GROUP BY ReportPeriod, OperatorType
+HAVING COUNT(*) > 1;
