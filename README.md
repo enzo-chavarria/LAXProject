@@ -136,3 +136,15 @@ FROM `LAX_data.gt_traffic_combined`;
 **Output:** 
 
 ![no null rows](images/gt_null_rows.png) ![no null columns](images/gt_null_col.png)
+
+### Checking for Duplicate Rows
+
+
+```sql
+SELECT ReportPeriod, OperatorType, COUNT(*) AS occurrences
+FROM `LAX_data.gt_traffic_combined`
+GROUP BY ReportPeriod, OperatorType
+HAVING COUNT(*) > 1;
+```
+
+**Output:** No data was returned, verifying that there were no duplicate rows
