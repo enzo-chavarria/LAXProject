@@ -170,4 +170,4 @@ SELECT COUNT(DISTINCT ReportPeriod) AS distinct_months,
 FROM `LAX_data.gt_traffic_combined`;
 ```
 
-**Output:** 
+**Output:** ![Confirmed distinct months](images/distinct_months.png)
