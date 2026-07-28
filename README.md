@@ -79,3 +79,17 @@ WHERE DataExtractDate IS NULL
   AND Domestic_International IS NULL
   AND Passenger_Count IS NULL;
 ```
+
+### Checking Distinct Values in Categorical Columns
+
+```sql
+SELECT DISTINCT Terminal FROM `LAX_data.passenger_combined` ORDER BY Terminal;
+SELECT DISTINCT Arrival_Departure FROM `LAX_data.passenger_combined` ORDER BY Arrival_Departure;
+SELECT DISTINCT Domestic_International FROM `LAX_data.passenger_combined` ORDER BY Domestic_International;
+```
+
+**Output:** 
+
+![distinct terminals](images/terminals.png) ![distinct arr and dep](images/arr_dep.png) ![distinct dom and int](images/dom_int.png)
+
+Verified that all categorical columns have correctly labeled distinct entries.
